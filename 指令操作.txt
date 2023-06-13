@@ -88,5 +88,32 @@ Git 拒絕合併無關的歷史記錄 解決這個問題的方法是執行帶有
 git pull origin main --allow-unrelated-histories
 
 解決後 繼續本來後續操作
-
 git push origin main
+ git branch
+  git add .
+  git commit -m "更新 指令操作.txt"
+  git push
+        fatal: The current branch main has no upstream branch.
+        To push the current branch and set the remote as upstream, use
+            git push --set-upstream origin main
+        To have this happen automatically for branches without a tracking
+        upstream, see 'push.autoSetupRemote' in 'git help config'.
+git push 時，Git 無法找到與當前分支 main 相關聯的上游分支（upstream branch）
+
+git push --set-upstream origin main
+將當前的 main 分支推送至遠端並設定遠端分支 origin/main 為 main 分支的上游分支
+以後只要 git push
+
+接著做好 main 推送後 進行 刪除分支動作
+git branch -d master          # 刪除本地的 master 分支
+        warning: not deleting branch 'master' that is not yet merged to
+                 'refs/remotes/origin/master', even though it is merged to HEAD.
+        error: The branch 'master' is not fully merged.
+        If you are sure you want to delete it, run 'git branch -D master'.
+尚未完整合併到遠端的 但我要地端 遠端都刪除 所以沒差
+git branch -D master
+git branch 確認地端已經刪除
+git push origin --delete master    # 刪除遠端的 master 分支
+到網頁查看 遠端確認刪除沒
+確認已經刪除
+( PS 在做一些操作時 確保當前分支)
