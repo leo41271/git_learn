@@ -154,3 +154,30 @@ git merge leo
 此時產生衝突 需要自己選擇
 解決衝突後 執行 commit 以提交 Push
 push 後 main 為最新。換 leo分支
+--------------------------經歷步驟1
+切換分支leo 產生內容 好了之後 再切回 main 在同檔案 新增一些東西
+虛線以下 是 切換到 leo分支
+因為落後進度 
+git pull origin main
+讓 leo 指令txt 補滿 然後多新增了 虛線以下的內容再分之leo
+告一段落。 push 到自己的分支
+git add .
+git commit -m "準備之後合併會產生 衝突的 分支內容"
+
+=======================經歷步驟3
+當main 切換到 leo (在使用 git stash後， 成功切換leo 後>> git stash pop)
+會產生衝突，我選擇原本的
+並提交上面內容
+ git add .
+ git commit -m "測試 git stash git stash pop 測試 pop 效果"
+
+
+||||||||||||||||||||||||||||||||||||||||
+注意我接收了兩著地變更
+但在 merge 前 其實我merge了兩次 但第一次沒有衝突 我就切換到 leo
+想起我剛剛沒有push 因次 push 後 在切換回來 進行merge
+現在要 add commit push 到 leo 進行 地端的整理。
+
+合併後 看到 原本只存在於 leo 分支的 leo分支.txt 被合併進來
+我在 這裡再推一次做紀錄。
+add commit push
