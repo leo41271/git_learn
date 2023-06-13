@@ -146,4 +146,11 @@ add commit push 做一次
 git add .
 git commit -m "git stash pop 操作的使用"
 git push
-經歷步驟4
+
+--------------------------經歷步驟4
+現在要 merge leo分支
+git checkout main
+git merge leo
+此時產生衝突 需要自己選擇
+解決衝突後 執行 commit 以提交 Push
+push 後 main 為最新。換 leo分支
