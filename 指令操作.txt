@@ -125,3 +125,5 @@ git push origin --delete master    # 刪除遠端的 master 分支
 git pull origin main
 讓 leo 指令txt 補滿 然後多新增了 虛線以下的內容再分之leo
 告一段落。 push 到自己的分支
+git add .
+git commit -m "準備之後合併會產生 衝突的 分支內容"
