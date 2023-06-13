@@ -68,3 +68,25 @@ git push origin main
 git branch -d master          # 刪除本地的 master 分支
 git push origin --delete master    # 刪除遠端的 master 分支
 =========================== 資料打玩到這 開始 前面 的 git add . 操作
+git push origin main 前面執行到 這時
+        To https://github.com/leo41271/git_learn.git
+         ! [rejected]        main -> main (non-fast-forward)
+        error: failed to push some refs to 'https://github.com/leo41271/git_learn.git'
+        hint: Updates were rejected because the tip of your current branch is behind
+        hint: its remote counterpart. Integrate the remote changes (e.g.
+        hint: 'git pull ...') before pushing again.
+        hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+表示 我再推送至遠端 分支 時 已經有新的提交(我在剛開始時 在 git 上 因為再推送遠端時 要有 
+推送遠端的網址 所以創建該 Repository>> Repositories New ，創建好後 已經有檔案。)
+
+而我的本地 main 分支相對於遠端分支落後 為解決>>
+git pull origin main
+        From https://github.com/leo41271/git_learn
+         * branch            main       -> FETCH_HEAD
+        fatal: refusing to merge unrelated histories
+Git 拒絕合併無關的歷史記錄 解決這個問題的方法是執行帶有 --allow-unrelated-histories 選項的 git pull 
+git pull origin main --allow-unrelated-histories
+
+解決後 繼續本來後續操作
+
+git push origin main
