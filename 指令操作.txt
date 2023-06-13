@@ -1,0 +1,14 @@
+ git  init
+(自己建立一個 隨便檔案 main.txt)
+ git add *.txt
+ git commit -m "add main txt"
+
+ git push (fatal: No configured push destination.)
+ 尚未設定遠端儲存庫的推送目的地。
+>> 建立遠端儲存庫。
+git remote add origin <遠端儲存庫網址>
+<遠端儲存庫網址>
+git remote add origin https://github.com/leo41271/git_learn.git
+
+git push -u origin master 將本地分支推送至遠端
+-u : 參數將該分支設定為上游分支， 讓以後 只要執行 git push 即可推送
