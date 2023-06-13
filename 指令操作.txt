@@ -12,3 +12,108 @@ git remote add origin https://github.com/leo41271/git_learn.git
 
 git push -u origin master 將本地分支推送至遠端
 -u : 參數將該分支設定為上游分支， 讓以後 只要執行 git push 即可推送
+
+這時候 我建立了該檔案 指令操作.txt 
+git add *
+git commit -m "add 說明文件 指令操作.txt"
+git push
+
+++++++++++
+地端 建立 leo 分支  (之後 創建 leo.txt)
+git branch leo (建立leo 分支)
+
+git branch (查看你當前位在哪一個分支。 master 通常指 main)
+git checkout 分支名 (切換到某某分支)
+git checkout -b leo （合併指令 可同時創建並切換分支）
+
+請確認你當前位於哪個分支 git branch 並切換到 leo分支
+git checkout leo
+建立 一個檔案 leo分支.txt (手動建立)
+git add leo分支.txt
+
+git branch main (中間不小心創建一個 我不想創建的分支 晚點做刪除分支的動作)
+切換回來 (git checkout leo)
+ git commit -m "add 只有在 leo分支才有的檔案(還未merge 之前)"
+git push (遠端尚未有leo分支)
+git push --set-upstream origin leo (報錯誤給的 指令 或以下 正規一般操作)
+git push origin leo
+
+// git 上查看 分支有三個 只有leo 有leo分支.txt 其他分支 main因為從未推過 所以沒東西
+(main 為GITHUB 創建時 自動的預設 我剛開始在地端 創建時 
+算創建錯誤 稍晚 會將 master 移植到 main 上)>>>
+
+將 master 分支的內容合併到當前的 main 分支並推送至遠端的 main 分支。
+後 刪除 地端和遠端 的 master 分支
+
+先確保 該分支都 提交完畢 如果有未提交的更改
+git branch
+git checkout master
+git branch
+
+git add .
+git commit -m "提交所有檔案PS 雖然都是同資料夾 但切換checkout leo 分支 才 會看到 leo分支.txt" (當前使用vscode 看檔案目錄結構)
+
+切換到 main 分支
+git checkout main
+合併 master 分支的內容到 main 分支
+git merge master
+將合併 master 分支的內容到 main 分支，並在 main 分支中包含了最新的更改(因你剛剛才做 commit)。
+
+將 main 分支推送至遠端的 main
+git push origin main
+
+確保遠端的 main 分支已經更新後 ///////////
+
+刪除本地和遠端的 master 分支
+git branch -d master          # 刪除本地的 master 分支
+git push origin --delete master    # 刪除遠端的 master 分支
+=========================== 資料打玩到這 開始 前面 的 git add . 操作
+git push origin main 前面執行到 這時
+        To https://github.com/leo41271/git_learn.git
+         ! [rejected]        main -> main (non-fast-forward)
+        error: failed to push some refs to 'https://github.com/leo41271/git_learn.git'
+        hint: Updates were rejected because the tip of your current branch is behind
+        hint: its remote counterpart. Integrate the remote changes (e.g.
+        hint: 'git pull ...') before pushing again.
+        hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+表示 我再推送至遠端 分支 時 已經有新的提交(我在剛開始時 在 git 上 因為再推送遠端時 要有 
+推送遠端的網址 所以創建該 Repository>> Repositories New ，創建好後 已經有檔案。)
+
+而我的本地 main 分支相對於遠端分支落後 為解決>>
+git pull origin main
+        From https://github.com/leo41271/git_learn
+         * branch            main       -> FETCH_HEAD
+        fatal: refusing to merge unrelated histories
+Git 拒絕合併無關的歷史記錄 解決這個問題的方法是執行帶有 --allow-unrelated-histories 選項的 git pull 
+git pull origin main --allow-unrelated-histories
+
+解決後 繼續本來後續操作
+git push origin main
+ git branch
+  git add .
+  git commit -m "更新 指令操作.txt"
+  git push
+        fatal: The current branch main has no upstream branch.
+        To push the current branch and set the remote as upstream, use
+            git push --set-upstream origin main
+        To have this happen automatically for branches without a tracking
+        upstream, see 'push.autoSetupRemote' in 'git help config'.
+git push 時，Git 無法找到與當前分支 main 相關聯的上游分支（upstream branch）
+
+git push --set-upstream origin main
+將當前的 main 分支推送至遠端並設定遠端分支 origin/main 為 main 分支的上游分支
+以後只要 git push
+
+接著做好 main 推送後 進行 刪除分支動作
+git branch -d master          # 刪除本地的 master 分支
+        warning: not deleting branch 'master' that is not yet merged to
+                 'refs/remotes/origin/master', even though it is merged to HEAD.
+        error: The branch 'master' is not fully merged.
+        If you are sure you want to delete it, run 'git branch -D master'.
+尚未完整合併到遠端的 但我要地端 遠端都刪除 所以沒差
+git branch -D master
+git branch 確認地端已經刪除
+git push origin --delete master    # 刪除遠端的 master 分支
+到網頁查看 遠端確認刪除沒
+確認已經刪除
+( PS 在做一些操作時 確保當前分支)
