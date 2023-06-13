@@ -117,3 +117,11 @@ git push origin --delete master    # 刪除遠端的 master 分支
 到網頁查看 遠端確認刪除沒
 確認已經刪除
 ( PS 在做一些操作時 確保當前分支)
+
+--------------------------
+切換分支leo 產生內容 好了之後 再切回 main 在同檔案 新增一些東西
+虛線以下 是 切換到 leo分支
+因為落後進度 
+git pull origin main
+讓 leo 指令txt 補滿 然後多新增了 虛線以下的內容再分之leo
+告一段落。 push 到自己的分支
