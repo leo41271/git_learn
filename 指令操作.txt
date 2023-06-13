@@ -142,4 +142,8 @@ git checkout leo
 git stash pop (回到原來的分支或其他分支時，可以使用 git stash pop 命令將儲藏的更改還原並從儲藏堆疊中刪除。)
 git stash apply : 指定特定的儲藏索引
 git stash show : 查看儲藏的更改 而不想立即還原
+add commit push 做一次
+git add .
+git commit -m "git stash pop 操作的使用"
+git push
 經歷步驟4
