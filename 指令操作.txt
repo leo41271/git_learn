@@ -127,3 +127,7 @@ git pull origin main
 告一段落。 push 到自己的分支
 git add .
 git commit -m "準備之後合併會產生 衝突的 分支內容"
+
+=======================
+當main 切換到 leo (在使用 git stash後， 成功切換leo 後>> git stash pop)
+會產生衝突，我選擇原本的
