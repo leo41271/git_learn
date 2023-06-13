@@ -12,3 +12,59 @@ git remote add origin https://github.com/leo41271/git_learn.git
 
 git push -u origin master 將本地分支推送至遠端
 -u : 參數將該分支設定為上游分支， 讓以後 只要執行 git push 即可推送
+
+這時候 我建立了該檔案 指令操作.txt 
+git add *
+git commit -m "add 說明文件 指令操作.txt"
+git push
+
+++++++++++
+地端 建立 leo 分支  (之後 創建 leo.txt)
+git branch leo (建立leo 分支)
+
+git branch (查看你當前位在哪一個分支。 master 通常指 main)
+git checkout 分支名 (切換到某某分支)
+git checkout -b leo （合併指令 可同時創建並切換分支）
+
+請確認你當前位於哪個分支 git branch 並切換到 leo分支
+git checkout leo
+建立 一個檔案 leo分支.txt (手動建立)
+git add leo分支.txt
+
+git branch main (中間不小心創建一個 我不想創建的分支 晚點做刪除分支的動作)
+切換回來 (git checkout leo)
+ git commit -m "add 只有在 leo分支才有的檔案(還未merge 之前)"
+git push (遠端尚未有leo分支)
+git push --set-upstream origin leo (報錯誤給的 指令 或以下 正規一般操作)
+git push origin leo
+
+// git 上查看 分支有三個 只有leo 有leo分支.txt 其他分支 main因為從未推過 所以沒東西
+(main 為GITHUB 創建時 自動的預設 我剛開始在地端 創建時 
+算創建錯誤 稍晚 會將 master 移植到 main 上)>>>
+
+將 master 分支的內容合併到當前的 main 分支並推送至遠端的 main 分支。
+後 刪除 地端和遠端 的 master 分支
+
+先確保 該分支都 提交完畢 如果有未提交的更改
+git branch
+git checkout master
+git branch
+
+git add .
+git commit -m "提交所有檔案PS 雖然都是同資料夾 但切換checkout leo 分支 才 會看到 leo分支.txt" (當前使用vscode 看檔案目錄結構)
+
+切換到 main 分支
+git checkout main
+合併 master 分支的內容到 main 分支
+git merge master
+將合併 master 分支的內容到 main 分支，並在 main 分支中包含了最新的更改(因你剛剛才做 commit)。
+
+將 main 分支推送至遠端的 main
+git push origin main
+
+確保遠端的 main 分支已經更新後 ///////////
+
+刪除本地和遠端的 master 分支
+git branch -d master          # 刪除本地的 master 分支
+git push origin --delete master    # 刪除遠端的 master 分支
+=========================== 資料打玩到這 開始 前面 的 git add . 操作
