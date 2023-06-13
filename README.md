@@ -2,8 +2,12 @@
 練習用的 包含從無到有 含建立分之 合併 衝突
 
 
+前置作業:
+1. 使用GITHUB 建立一個repository
+2. 地端 use vscode (to see the directory. this can see the differencen of branch (main and leo )
 
-
+++++++++++++++++++++++++++++++++++++++
+`
 以下是操作 過程
 git  init
 (自己建立一個 隨便檔案 main.txt)
@@ -192,3 +196,8 @@ add commit push
 ////////////////////////////////////
 在分支leo pull下來之後 只有當按更新 。
 現在 add commit push 最後這段 再到 main 觀察
+`
+
+
+if it can help you and like it plz give me a star.
+有幫到你 對您受益 還請不吝嗇 給我一個 星星
