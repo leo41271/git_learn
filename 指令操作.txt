@@ -117,3 +117,24 @@ git push origin --delete master    # 刪除遠端的 master 分支
 到網頁查看 遠端確認刪除沒
 確認已經刪除
 ( PS 在做一些操作時 確保當前分支)
+
+
+
+==============================================
+雙虛線以下是跟 leo分歧 操作 展現 之後會進行 merge 操作，操作時 會產生衝突來解決。
+我需要選擇衝突檔案 解決挑選 更動部分。
+git checkout leo
+        error: Your local changes to the following files would be overwritten by checkout:
+                指令操作.txt
+        Please commit your changes or stash them before you switch branches.
+        Aborting
+有三種作法
+    1提交更改 : git add 指令操作.txt
+                git commit -m "我更改的main 操作"
+                OK 後再切換到分支 (注意 遠端的狀態!! 是落後的)
+    2儲藏更改 : 不想提交更改 但仍然想切換到 leo 分支
+                git stash
+    3放棄更改 : git checkout -- 指令操作.txt
+                git checkout leo
+                在這句之前我們先提交一次 作法1
+
