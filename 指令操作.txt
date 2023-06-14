@@ -234,3 +234,13 @@ git push
 
 =======================================================================
 接下來要進行 放棄更改的操作
+        1git checkout <file> (還原單個檔案 ， 以 use_to_gitcheckout.txt 為例子)
+        git checkout . (還原整個工作目錄中的更改)
+use_to_gitcheckout.txt (手動新增 裡面 新增的內容:"新增的用來測試會先add commit push 再2次更改 再使用 git checkout 觀察 理論上會有此行 兩次 而後面那次 被git checkout 給還原了")
+push 好後 再複製同一行 進行 git checkout use_to_gitcheckout.txt 觀察 被看掉的內容是否消失 。
+git checkout .\use_to_gitcheckout.txt (有消失  git checkout . 也同只事影響的是多個檔案)
+        2git restore <file>(還原單個檔案)
+        git restore . (還原整個工作目錄中的更改)
+        類似於 git checkout Git 2.23 版本後才可用 (不多做測試)
+
+        3.
