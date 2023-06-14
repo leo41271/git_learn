@@ -1,3 +1,20 @@
+PS: 準備工具 下載 git 環境 。 好讓你在自己的電腦上可以執行git 指令。
+PS: 本練習使用 vscode  的終端機 來操作 git 指令 。請下載vscode 。
+    並且 下載vscode中的 延伸模組 "Git Graph" 。 目錄結構只從VScode 中看
+    ，才能 區別 分支 的差異 (使用電腦的檔案系統無法區別!!)
+PS: Prepare the tool to download the git environment. So that you can execute git commands on your computer.
+PS: This exercise uses the terminal of vscode to operate the git command. Please download vscode.
+     And download the extension module "Git Graph" in vscode. The directory structure is only viewed from VScode
+     , in order to distinguish the difference of the branch (the file system of the computer cannot be distinguished!!)
+=======================================================================
+以下所有操作都在 我自己創建的 資料夾 進行(或你自己創建一個) leo_learn_git 資料夾
+請參照 後面的行數 慢慢執行並建立你的範例 !!
+All the following operations are performed in the folder I created (or create one yourself) leo_learn_git folder
+Please refer to the following lines to execute slowly and build your example !!
+部分操作看不懂中文 可以使用Google翻譯來對照 我的筆記操作內容
+Some operations cannot understand Chinese, you can use Google Translate to compare the operation content of my notes
+=======================================================================
+
  git  init
 (自己建立一個 隨便檔案 main.txt)
  git add *.txt
@@ -7,10 +24,12 @@
  尚未設定遠端儲存庫的推送目的地。
 >> 建立遠端儲存庫。
 git remote add origin <遠端儲存庫網址>
-<遠端儲存庫網址>
+( 到 github 上 建立一個 Repository NEW 。 完成後去扣他的網址 )
 git remote add origin https://github.com/leo41271/git_learn.git
 
 git push -u origin master 將本地分支推送至遠端
+PS: 早期 main 可指 master 因為可能帶有歧視意味 現今都改為 main 。 
+    而在這邊可以視為 原本要新增main 分支 結果新增錯，所以後續步驟中有篩除 此分支(master)
 -u : 參數將該分支設定為上游分支， 讓以後 只要執行 git push 即可推送
 
 這時候 我建立了該檔案 指令操作.txt 
@@ -18,7 +37,7 @@ git add *
 git commit -m "add 說明文件 指令操作.txt"
 git push
 
-++++++++++
+=======================================================================
 地端 建立 leo 分支  (之後 創建 leo.txt)
 git branch leo (建立leo 分支)
 
@@ -26,26 +45,31 @@ git branch (查看你當前位在哪一個分支。 master 通常指 main)
 git checkout 分支名 (切換到某某分支)
 git checkout -b leo （合併指令 可同時創建並切換分支）
 
-請確認你當前位於哪個分支 git branch 並切換到 leo分支
+PS: 請時常確認你當前位於哪個分支。 git branch 。 並切換到你接下來要動作的目標分支 leo分支
 git checkout leo
-建立 一個檔案 leo分支.txt (手動建立)
+建立 一個檔案 leo分支.txt (手動建立。 我在這邊用 vscode 建立)
+
 git add leo分支.txt
 
-git branch main (中間不小心創建一個 我不想創建的分支 晚點做刪除分支的動作)
+git branch main 
+PS: (中間不小心創建一個 我不想創建的分支 晚點做刪除分支的動作。 本來以為main 是我創建錯的
+        但因為後來要推到遠端時 發現 github 上預設的 為 main分支 因此在後面步驟 開始以 main 為主)
+
 切換回來 (git checkout leo)
- git commit -m "add 只有在 leo分支才有的檔案(還未merge 之前)"
+git commit -m "add 只有在 leo分支才有的檔案(還未merge 之前)"
 git push (遠端尚未有leo分支)
 git push --set-upstream origin leo (報錯誤給的 指令 或以下 正規一般操作)
-git push origin leo
+git push origin leo (這邊我目前選擇 此操作， 後須印未熟悉後 想要便捷指適用 git push 快一點 在選擇上面那行)
 
-// git 上查看 分支有三個 只有leo 有leo分支.txt 其他分支 main因為從未推過 所以沒東西
-(main 為GITHUB 創建時 自動的預設 我剛開始在地端 創建時 
-算創建錯誤 稍晚 會將 master 移植到 main 上)>>>
+PS: git 上查看 分支有三個 只有leo分支 有 leo分支.txt的檔案 其他分支沒有此檔案。
+        main因為從未推過也從未拉過 所以沒東西。(main 遠端使有東西的，因為我在新建時 有新增 License md 檔案)
+PS: (main 為GITHUB 創建時 自動的預設 我剛開始在地端 創建時 
+        算創建錯誤 稍晚 會將 master 移植到 main 上)>>>
 
-將 master 分支的內容合併到當前的 main 分支並推送至遠端的 main 分支。
-後 刪除 地端和遠端 的 master 分支
+將 master 分支的內容合併到當前的 main 分支。 並推送至遠端的 main 分支。
+之後 刪除 地端和遠端 的 master 分支。
 
-先確保 該分支都 提交完畢 如果有未提交的更改
+先確保 該分支(master)都 提交完畢 如果有未提交的更改>>
 git branch
 git checkout master
 git branch
@@ -57,17 +81,18 @@ git commit -m "提交所有檔案PS 雖然都是同資料夾 但切換checkout l
 git checkout main
 合併 master 分支的內容到 main 分支
 git merge master
-將合併 master 分支的內容到 main 分支，並在 main 分支中包含了最新的更改(因你剛剛才做 commit)。
+將合併 master 分支的內容到 main 分支，並且已經在 main 分支中包含了最新的更改(因為你剛剛才做 commit)。
 
 將 main 分支推送至遠端的 main
 git push origin main
 
-確保遠端的 main 分支已經更新後 ///////////
-
+確保遠端的 main 分支已經更新後 (github 網站上的)
+=======================================================================以下還未做因為有報錯誤
 刪除本地和遠端的 master 分支
 git branch -d master          # 刪除本地的 master 分支
 git push origin --delete master    # 刪除遠端的 master 分支
-=========================== 資料打玩到這 開始 前面 的 git add . 操作
+=======================================================================以上還未做因為有報錯誤
+=========================== 資料打完到這 開始 前面 的 git add . 操作 (這行是指我先將後須步驟寫到這一行 然後開始動作)
 git push origin main 前面執行到 這時
         To https://github.com/leo41271/git_learn.git
          ! [rejected]        main -> main (non-fast-forward)
@@ -76,8 +101,8 @@ git push origin main 前面執行到 這時
         hint: its remote counterpart. Integrate the remote changes (e.g.
         hint: 'git pull ...') before pushing again.
         hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-表示 我再推送至遠端 分支 時 已經有新的提交(我在剛開始時 在 git 上 因為再推送遠端時 要有 
-推送遠端的網址 所以創建該 Repository>> Repositories New ，創建好後 已經有檔案。)
+表示 我推送至遠端 分支 時 已經有新的提交(我在剛開始時 在 git 上 因為再推送遠端時 要有 
+推送遠端的網址 所以創建該 Repository>> Repositories New ，創建好後 已經有檔案。所以我要跟進遠端檔案有地端檔案沒有的內容)
 
 而我的本地 main 分支相對於遠端分支落後 為解決>>
 git pull origin main
@@ -110,15 +135,22 @@ git branch -d master          # 刪除本地的 master 分支
                  'refs/remotes/origin/master', even though it is merged to HEAD.
         error: The branch 'master' is not fully merged.
         If you are sure you want to delete it, run 'git branch -D master'.
-尚未完整合併到遠端的 但我要地端 遠端都刪除 所以沒差
+尚未完整合併到遠端的。 但我要地端 遠端都刪除 所以沒差
 git branch -D master
-git branch 確認地端已經刪除
+git branch (確認地端已經刪除)
 git push origin --delete master    # 刪除遠端的 master 分支
 到網頁查看 遠端確認刪除沒
 確認已經刪除
 ( PS 在做一些操作時 確保當前分支)
 
 
+以下的經歷步驟 請照 順序:
+經歷步驟1
+經歷步驟2
+經歷步驟3
+經歷步驟4
+(這邊會先寫 2 4 1 3 是因為 在後續發生衝突時 接收全部合併倒置 順序看起來是 2 4 1 3
+實際順序 為 1 2 3 4 的操作步驟 。)
 
 ==============================================經歷步驟2
 雙虛線以下是跟 leo分歧 操作 展現 之後會進行 merge 操作，操作時 會產生衝突來解決。
@@ -136,35 +168,35 @@ git checkout leo
                 git stash
     3放棄更改 : git checkout -- 指令操作.txt
                 git checkout leo
-                在這句之前我們先提交一次 作法1
+        在這句之前我們先提交一次 作法1
 我們選擇步驟二
-我們選擇步驟二 (原本這裡的 被我捨棄了 上面那行 因為衝突關係 在我切回 main 分之時消失 因為我 已經 pop 用掉了儲存)
+我們選擇步驟二 (原本這裡的 被我捨棄了 上面那行 因為衝突關係 在我切回 main 分支時消失 因為我 已經在leo分支 pop 用掉了儲存)
 git stash pop (回到原來的分支或其他分支時，可以使用 git stash pop 命令將儲藏的更改還原並從儲藏堆疊中刪除。)
-git stash apply : 指定特定的儲藏索引
-git stash show : 查看儲藏的更改 而不想立即還原
+git stash apply : 指定特定的儲藏索引 (後續有空再了解)
+git stash show : 查看儲藏的更改 而不想立即還原 (後續有空再了解)
 add commit push 做一次
 git add .
 git commit -m "git stash pop 操作的使用"
 git push
 
---------------------------經歷步驟4
+==============================================經歷步驟4
 現在要 merge leo分支
 git checkout main
 git merge leo
 此時產生衝突 需要自己選擇
 解決衝突後 執行 commit 以提交 Push
 push 後 main 為最新。換 leo分支
---------------------------經歷步驟1
+==============================================經歷步驟1
 切換分支leo 產生內容 好了之後 再切回 main 在同檔案 新增一些東西
 虛線以下 是 切換到 leo分支
 因為落後進度 
 git pull origin main
-讓 leo 指令txt 補滿 然後多新增了 虛線以下的內容再分之leo
+讓 leo 指令操作.txt 補滿 然後多新增了 虛線以下的內容在 分支leo
 告一段落。 push 到自己的分支
 git add .
 git commit -m "準備之後合併會產生 衝突的 分支內容"
 
-=======================經歷步驟3
+==============================================經歷步驟3
 當main 切換到 leo (在使用 git stash後， 成功切換leo 後>> git stash pop)
 會產生衝突，我選擇原本的
 並提交上面內容
@@ -172,16 +204,23 @@ git commit -m "準備之後合併會產生 衝突的 分支內容"
  git commit -m "測試 git stash git stash pop 測試 pop 效果"
 
 
-||||||||||||||||||||||||||||||||||||||||
+=======================================================================
 注意我接收了兩著地變更
 但在 merge 前 其實我merge了兩次 但第一次沒有衝突 我就切換到 leo
-想起我剛剛沒有push 因次 push 後 在切換回來 進行merge
+想起我剛剛沒有push (在前面我的筆記中都指有 add commit 而沒有 push) 
+因此在重新 push 後 再切換回來 進行merge
 現在要 add commit push 到 leo 進行 地端的整理。
 
 合併後 看到 原本只存在於 leo 分支的 leo分支.txt 被合併進來
 我在 這裡再推一次做紀錄。
 add commit push
 
-////////////////////////////////////
+=======================================================================
 在分支leo pull下來之後 只有當按更新 。
 現在 add commit push 最後這段 再到 main 觀察
+
+告一段落 我在網路上 簡單曉整理一下 所以只有遠端main 有變更。
+接著 我重新 詳細整理 這邊的筆記 並增加一些說明補充。補充好後我再 add commit push
+git add .
+git commit -m "重新詳細整理目前的筆記 更好的能看懂文章再幹嘛"
+git push
