@@ -1,1 +1,5 @@
 新增的用來測試會先add commit push 再2次更改 再使用 git checkout 觀察 理論上會有此行 兩次 而後面那次 被git checkout 給還原了
+
+
+
+1 add
