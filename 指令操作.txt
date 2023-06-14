@@ -224,3 +224,10 @@ add commit push
 git add .
 git commit -m "重新詳細整理目前的筆記 更好的能看懂文章再幹嘛"
 git push
+
+git log 可以查看 歷史 按下 Q 鍵 可以離開
+
+PS: 補充 中間可以查看 git graph 分支的狀況
+git add .
+git commit -m "新增 git graph 截圖狀況(git graph capture)"
+git push
