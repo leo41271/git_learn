@@ -243,4 +243,10 @@ git checkout .\use_to_gitcheckout.txt (有消失  git checkout . 也同只事影
         git restore . (還原整個工作目錄中的更改)
         類似於 git checkout Git 2.23 版本後才可用 (不多做測試)
 
-        3.
+        3.git reset：這個命令用於將分支的 HEAD 移動到特定的提交，從而捨棄該提交之後的所有更改。
+        (會丟失未提交的更改)
+        git reset HEAD~ (捨棄最後一次提交之後的所有更改)
+        (此處可以查看 images 資料夾之下的 1_~3_!@#$%^&.png)
+        git add .
+        git commit -m "update image proof capture reset after and before"
+        git push
