@@ -1,0 +1,73 @@
+進行 將 fork 後的 inception-666 的檔案 clone copy 下來 到 fork_leo_learn_git 裡面。
+git clone https://github.com/inception-666/git_learn.git
+git branch
+fatal: not a git repository (or any of the parent directories): .git
+因為pull (clone) 下來的 .git 檔案 和 git 檔 都再 git_learn 裡面 必須 切換(cd)進去。
+cd git按下tab 鍵 >>  cd .\git_learn\
+git branch >>
+main
+建立 fork_leo 分支
+git branch fork_leo
+git checkout fork_leo
+git add fork_指令操作.txt
+git commit -m "新增 fork_指令操作.txt ， 並記錄關於 fork 的操作之後再對 我fork這邊的更改貢獻回原始儲存庫 的操作"
+git push origin fork_leo
+    To https://github.com/inception-666/git_learn.git
+     ! [remote rejected] fork_leo -> fork_leo (permission denied)
+    error: failed to push some refs to 'https://github.com/inception-666/git_learn.git'
+推送 fork_leo 分支時遇到了權限被拒絕的問題。
+PS: 您需要是原始儲存庫的協作者（collaborator）或擁有者（owner）才能進行推送。
+        若 確定您的帳號有權限，請檢查是否正確設定了遠端儲存庫的 URL。請使用以下命令檢查遠端儲存庫的 URL 設定：
+        git remote -v
+		git remote set-url origin [your-fork-repository-url] (不正確時可設定)
+        檢查一下您的 GitHub 帳號是否正確連結到 VSCode 中。
+
+        在這邊 可以透過 Git Graph 右上角 螺絲帽 Repository Setting 設定點及下去看到
+        User Detial 為 user name : 03_leo 。 user email :leochiou0927@gmail.com ( git config user.name "XXX")
+        我將它改為 user name : fork_03_leo 。 user email :holdon41271@gmail.com ( git config user.email "XX@XX")
+        (我目前還沒有給予協作設定)
+git config --global user.name "Your Name"
+git config --global user.email "your_email@example.com"
+
+git add fork_指令操作.txt
+git commit -m "因權限問題 進行操作權限變更操作的筆記 。先操作 變更vscode 的 git帳號以符合 我推上去遠端git 的帳號"
+git push origin fork_leo
+(過程碰到的問題 環繞於 本地端 leo41271 與 遠端 inception-666 權限不夠 無法push)
+ git config --list
+ $ git push
+remote: Permission to inception-666/fork_use.git denied to leo41271.
+fatal: unable to access 'https://github.com/inception-666/fork_use.git/': The requested URL returned error: 403
+不知道怎麼改 (主要問題 身分不對等 權限不夠 無法 push 。 一種作法是將 leo41271 邀請作為協作者)
+
+// ============================================================
+如果您想將您的更改貢獻回原始儲存庫，您可以使用 "Pull Request"（拉取請求）功能。這將通知原始儲存庫的擁有者您的更改，並允許他們審查和接受您的更改。
+
+以下是使用 "Pull Request" 功能將更改貢獻回原始儲存庫的操作步驟：
+
+使用您的其中一個帳號登入到 GitHub。
+
+前往您 fork 的專案的頁面，即 https://github.com/<your-username>/git_learn （請將 <your-username> 替換為您的 GitHub 使用者名稱）。
+
+在頁面上方，點擊 "Pull Request" 按鈕。
+
+這將帶您到 "Comparing changes" 頁面。請確保 "base repository"（基準儲存庫）設置為原始儲存庫（https://github.com/leo41271/git_learn）。
+
+在 "base"（基準）選項中，選擇要將更改應用到的分支。通常，這是原始儲存庫的主分支（main）。
+
+在 "head"（源）選項中，選擇包含您的更改的分支。這是您 fork 的專案中的分支。
+
+確保 "Allow edits from maintainers"（允許維護者編輯）選項已選中，以便原始儲存庫的維護者可以在必要時對您的更改進行修改。
+
+在 "Title"（標題）欄位中，輸入一個簡明扼要的標題，描述您的更改內容。
+
+在 "Leave a comment"（留下評論）欄位中，選擇性地提供關於您的更改的詳細說明。
+
+點擊 "Create pull request"（建立拉取請求）按鈕。
+
+現在，您的拉取請求已經建立，並已通知原始儲存庫的擁有者。他們將能夠檢閱您的更改並提供反饋。
+
+請注意，經過擁有者的審查和接受後，您的更改將合併到原始儲存庫的指定分支中。
+git add .\fork_指令操作.txt
+ git commit -m "fork 相關 但 還沒操作完 原本repo 貢獻更改"
+ git push origin fork
+// ============================================================
