@@ -261,6 +261,6 @@ git checkout .\use_to_gitcheckout.txt (有消失  git checkout . 也相同只是
         
         (git reset HEAD^   # 移動到 HEAD 的上一個提交 補充沒測試)
         (git reset HEAD~2  # 移動到 HEAD 的第二級父提交 補充沒測試)
-
+   
         
  
